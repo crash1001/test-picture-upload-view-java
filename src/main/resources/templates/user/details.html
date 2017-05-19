@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="layout :: head(${user.description})"></head>
+<body>
+<div th:replace="layout :: nav"></div>
+<div th:replace="layout :: searchbar"></div>
+<div th:replace="layout :: flash"></div>
+<div class="user-detail container">
+    <div class="frame row">
+        <div class="col s12 actions">
+            <img th:src="@{|/users/${user.id}.gif|}" alt="user" />
+            
+        </div>
+    </div>
+    <div class="meta row">
+        <div class="col s10 l11 push-l1">
+            <h4 th:text="${user.description}"></h4>
+            <div>
+               
+                
+                <div class="actions">
+                    <a th:href="@{|/users/${user.id}/edit|}">Edit</a>
+                    <form th:action="@{|/users/${user.id}/delete|}" method="post">
+                        <button type="submit">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="col s12 l11 offset-l1">
+            <div class="divider"></div>
+        </div>
+       
+    </div>
+</div>
+<div th:replace="layout :: scripts"></div>
+</body>
+</html>
